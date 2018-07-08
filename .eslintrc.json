@@ -1,0 +1,21 @@
+{
+  "plugins": ["react", "react-native"],
+  "ecmaFeatures": {
+    "jsx": true
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "react-native/react-native": true
+  },
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "rules": {
+    "linebreak-style": 0,
+    "comma-dangle": ["error", "never"],
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": 0
+  }
+}
