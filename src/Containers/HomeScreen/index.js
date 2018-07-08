@@ -1,14 +1,33 @@
-import React, { Component } from 'react'
-import { Button, View } from 'react-native'
+import React, { Component } from "react";
+import { Button, View } from "react-native";
+import { connect } from "react-redux";
 
-export default class HomeScreen extends Component {
+import { incrementIfOdd, increment, incrementAsync } from "../../Actions/index";
+
+class HomeScreen extends Component {
   render() {
+    console.log("props", this.props);
     return (
       <View>
-      <Button title="Increase"/>
-      <Button title="Increase if odd"/>
-      <Button title="Increase if even"/>
+        <Button title="Increase" onPress={() => this.props.increment()} />
+        <Button
+          title="Increase async"
+          onPress={() => this.props.incrementAsync()}
+        />
+        <Button
+          title="Increase if odd"
+          onPress={() => this.props.incrementIfOdd()}
+        />
       </View>
-    )
+    );
   }
 }
+
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(
+  mapStateToProps,
+  { incrementIfOdd, increment, incrementAsync }
+)(HomeScreen);
